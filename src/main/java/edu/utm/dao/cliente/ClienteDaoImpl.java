@@ -76,4 +76,15 @@ public class ClienteDaoImpl implements ClienteDao {
 			System.out.println("Error: "+e);
 		}
 	}
+	@Override
+	public void deleteOneCliente(Cliente cliente) {
+		try {
+			ClienteMapper clienteMapper = sqlSession.getMapper(ClienteMapper.class);
+			clienteMapper.deleteOneCliente(cliente);
+			System.out.println("Cliente "+cliente.getClinombre()+" eliminado");
+		}
+		catch(Exception e){
+			System.out.println("Error: "+e);
+		}
+	}
 }

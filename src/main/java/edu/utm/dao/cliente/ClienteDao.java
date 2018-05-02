@@ -8,4 +8,5 @@ public interface ClienteDao {
 	void updateCliente(Cliente cliente);
 	Cliente findOneCliente(Cliente cliente);
 	void insertCliente(Cliente cliente);
+	void deleteOneCliente(Cliente cliente);
 }

@@ -24,7 +24,7 @@ public class ClienteDaoImpTest {
 	public void pruebaConsultarTodo() {
 		try {
 			List<Cliente> lista = clienteDao.findAllClientes();
-			assertEquals(lista.size(),2);
+			assertEquals(lista.size(),4);
 		}catch(Exception ex) {
 			System.out.println("error "+ex);
 		}
@@ -50,7 +50,7 @@ public class ClienteDaoImpTest {
 		try {
 			Cliente c = new Cliente();
 			Cliente result=null;
-			c.setIdcliente(3);
+			c.setIdcliente(4);
 			result=clienteDao.findOneCliente(c);
 			System.out.println("Cliente encontrado: "+result.getClinombre());
 		}
@@ -68,6 +68,18 @@ public class ClienteDaoImpTest {
 			c.setClidireccion("");
 			clienteDao.insertCliente(c);
 			System.out.println("Cliente insertado: "+c.getClinombre());
+		}
+		catch(Exception ex) {
+			System.out.println("error "+ex);
+		}
+	}
+	@Test
+	public void pruebaEliminaCliente() {
+		try {
+			Cliente c = new Cliente();
+			c.setIdcliente(8);
+			clienteDao.deleteOneCliente(c);
+			System.out.println("Cliente emilinado: "+c.getIdcliente());
 		}
 		catch(Exception ex) {
 			System.out.println("error "+ex);
